@@ -1,6 +1,6 @@
 # vsts-octobot
 
-> a GitHub App built with [probot](https://github.com/probot/probot) that 
+A GitHub App built with [probot](https://github.com/probot/probot) that links GitHub Enterprise and VSTS
 
 ## Setup
 
