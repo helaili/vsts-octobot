@@ -1,10 +1,31 @@
 module.exports = (robot) => {
-  // Your code here
   console.log('Yay, the app was loaded!')
+  robot.on('push', async context => {
+   robot.log('**************************');
+   robot.log(context);
+  });
 
-  // For more information on building apps:
-  // https://probot.github.io/docs/
+  // Get an express router to expose new HTTP endpoints
+  const app = robot.route('/vsts-octobot');
 
-  // To get your app running against GitHub, see:
-  // https://probot.github.io/docs/development/
+  // Use any middleware
+  app.use(require('express').static(__dirname + '/public'));
+
+  // Add a new route
+  app.get('/hello-world', (req, res) => {
+    res.end('Hello World');
+  });
+
+  app.get('/home', (req, res) => {
+    res.end('Home');
+  });
+
+  app.get('/auth', (req, res) => {
+    res.end('Auth');
+  });
+
+  app.get('/setup', (req, res) => {
+    res.end('Setup');
+  });
+
 }
