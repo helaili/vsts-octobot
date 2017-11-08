@@ -4,7 +4,7 @@ A GitHub App built with [probot](https://github.com/probot/probot) that links Gi
 
 ## Setup
 
-Create a secret with `dd if=/dev/urandom bs=32 count=1 2>/dev/null | openssl base64` and set the `SECRET` variable in the `.env` file
+Create a secret with `dd if=/dev/urandom bs=32 count=1 2>/dev/null | openssl base64` and set the `FERNET_SECRET` variable in the `.env` file
 
 ```
 # Install dependencies
