@@ -1,0 +1,99 @@
+{
+  _links: {
+    self: {
+      href: 'https://helaili.visualstudio.com/DefaultCollection/d9cf02d4-6723-4346-a726-477315b23501/_apis/build/Builds/12'
+    },
+    web: {
+      href: 'https://helaili.visualstudio.com/DefaultCollection/_permalink/_build/index?collectionId=39f0b7ad-371d-4c8b-af7d-a1f4ee1e4d1f&projectId=d9cf02d4-6723-4346-a726-477315b23501&buildId=12'
+    },
+    timeline: {
+      href: 'https://helaili.visualstudio.com/DefaultCollection/d9cf02d4-6723-4346-a726-477315b23501/_apis/build/builds/12/Timeline'
+    }
+  },
+  properties: {},
+  plans: [{
+    planId: '8b4ca8b7-2921-405b-a048-0408389c9fc0'
+  }],
+  id: 12,
+  buildNumber: '20171101.2',
+  status: 32,
+  queueTime: 2017 - 11 - 01 T17: 08: 11.676 Z,
+  url: 'https://helaili.visualstudio.com/DefaultCollection/d9cf02d4-6723-4346-a726-477315b23501/_apis/build/Builds/12',
+  definition: {
+    drafts: [],
+    id: 5,
+    name: 'SpidersFromMars-ASP.NET Core (.NET Framework)-CI',
+    url: 'https://helaili.visualstudio.com/DefaultCollection/d9cf02d4-6723-4346-a726-477315b23501/_apis/build/Definitions/5',
+    path: '\\',
+    type: 2,
+    queueStatus: 0,
+    revision: 1,
+    project: {
+      id: 'd9cf02d4-6723-4346-a726-477315b23501',
+      name: 'SpidersFromMars',
+      url: 'https://helaili.visualstudio.com/DefaultCollection/_apis/projects/d9cf02d4-6723-4346-a726-477315b23501',
+      state: 'wellFormed',
+      revision: 45,
+      visibility: 'private'
+    }
+  },
+  buildNumberRevision: 2,
+  project: {
+    id: 'd9cf02d4-6723-4346-a726-477315b23501',
+    name: 'SpidersFromMars',
+    url: 'https://helaili.visualstudio.com/DefaultCollection/_apis/projects/d9cf02d4-6723-4346-a726-477315b23501',
+    state: 'wellFormed',
+    revision: 45,
+    visibility: 'private'
+  },
+  uri: 'vstfs:///Build/Build/12',
+  sourceBranch: 'master',
+  queue: {
+    id: 22,
+    name: 'Hosted',
+    pool: {
+      id: 2,
+      name: 'Hosted',
+      isHosted: true
+    }
+  },
+  priority: 3,
+  reason: 1,
+  requestedFor: {
+    id: '24660040-4532-477b-b198-c9bfc941e073',
+    displayName: 'helaili',
+    uniqueName: 'helaili@github.com',
+    url: 'https://app.vssps.visualstudio.com/A7b207f0c-939e-4cf4-97d1-3423ced2c63c/_apis/Identities/24660040-4532-477b-b198-c9bfc941e073',
+    imageUrl: 'https://helaili.visualstudio.com/_api/_common/identityImage?id=24660040-4532-477b-b198-c9bfc941e073'
+  },
+  requestedBy: {
+    id: '24660040-4532-477b-b198-c9bfc941e073',
+    displayName: 'helaili',
+    uniqueName: 'helaili@github.com',
+    url: 'https://app.vssps.visualstudio.com/A7b207f0c-939e-4cf4-97d1-3423ced2c63c/_apis/Identities/24660040-4532-477b-b198-c9bfc941e073',
+    imageUrl: 'https://helaili.visualstudio.com/_api/_common/identityImage?id=24660040-4532-477b-b198-c9bfc941e073'
+  },
+  lastChangedDate: 2017 - 11 - 01 T17: 08: 14.130 Z,
+  lastChangedBy: {
+    id: '24660040-4532-477b-b198-c9bfc941e073',
+    displayName: 'helaili',
+    uniqueName: 'helaili@github.com',
+    url: 'https://app.vssps.visualstudio.com/A7b207f0c-939e-4cf4-97d1-3423ced2c63c/_apis/Identities/24660040-4532-477b-b198-c9bfc941e073',
+    imageUrl: 'https://helaili.visualstudio.com/_api/_common/identityImage?id=24660040-4532-477b-b198-c9bfc941e073'
+  },
+  orchestrationPlan: {
+    planId: '8b4ca8b7-2921-405b-a048-0408389c9fc0'
+  },
+  logs: {
+    id: 0,
+    type: 'Container',
+    url: 'https://helaili.visualstudio.com/DefaultCollection/d9cf02d4-6723-4346-a726-477315b23501/_apis/build/builds/12/logs'
+  },
+  repository: {
+    id: 'https://github.com/helaili/SpidersFromMars',
+    type: 'Git',
+    clean: null,
+    checkoutSubmodules: false
+  },
+  keepForever: false,
+  retainedByRelease: false}

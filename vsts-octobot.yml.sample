@@ -1,0 +1,4 @@
+instance: 'helaili.visualstudio.com'
+collection: 'DefaultCollection'
+project: 'SpidersFromMars'
+buildDefinition: 5

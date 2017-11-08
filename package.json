@@ -11,13 +11,18 @@
     "push": "node_modules/.bin/probot simulate push test/fixtures/push.json ./index.js"
   },
   "dependencies": {
-    "probot": "^2.0.0"
+    "body-parser": "^1.18.2",
+    "fernet": "^0.3.1",
+    "probot": "^2.0.0",
+    "vso-node-api": "^6.2.8-preview"
   },
   "devDependencies": {
     "expect": "^1.20.2",
     "localtunnel": "^1.8.2",
     "mocha": "^3.2.0",
-    "standard": "^10.0.3"
+    "sinon": "^4.0.2",
+    "standard": "^10.0.3",
+    "supertest": "^1.0.0"
   },
   "engines": {
     "node": ">= 7.7.0",

@@ -1,0 +1,181 @@
+{
+  build: [{
+      environment: {},
+      enabled: true,
+      continueOnError: false,
+      alwaysRun: false,
+      displayName: 'Use NuGet 4.3.0',
+      timeoutInMinutes: 0,
+      refName: 'NuGetToolInstaller1',
+      task: [Object],
+      inputs: [Object]
+    },
+    {
+      environment: {},
+      enabled: true,
+      continueOnError: false,
+      alwaysRun: false,
+      displayName: 'NuGet restore',
+      timeoutInMinutes: 0,
+      refName: 'NuGetCommand2',
+      task: [Object],
+      inputs: [Object]
+    },
+    {
+      environment: {},
+      enabled: true,
+      continueOnError: false,
+      alwaysRun: false,
+      displayName: 'Build solution',
+      timeoutInMinutes: 0,
+      refName: 'VSBuild3',
+      task: [Object],
+      inputs: [Object]
+    },
+    {
+      environment: {},
+      enabled: true,
+      continueOnError: false,
+      alwaysRun: false,
+      displayName: 'Test Assemblies',
+      timeoutInMinutes: 0,
+      refName: 'VSTest4',
+      task: [Object],
+      inputs: [Object]
+    },
+    {
+      environment: {},
+      enabled: true,
+      continueOnError: true,
+      alwaysRun: false,
+      displayName: 'Publish symbols path',
+      timeoutInMinutes: 0,
+      refName: 'PublishSymbols5',
+      task: [Object],
+      inputs: [Object]
+    },
+    {
+      environment: {},
+      enabled: true,
+      continueOnError: false,
+      alwaysRun: false,
+      displayName: 'Publish Artifact',
+      timeoutInMinutes: 0,
+      refName: 'PublishBuildArtifacts6',
+      task: [Object],
+      inputs: [Object]
+    }
+  ],
+  options: [{
+      enabled: true,
+      definition: [Object],
+      inputs: [Object]
+    },
+    {
+      enabled: false,
+      definition: [Object],
+      inputs: [Object]
+    },
+    {
+      enabled: false,
+      definition: [Object],
+      inputs: {}
+    }
+  ],
+  variables: {
+    BuildConfiguration: {
+      value: 'release',
+      allowOverride: true
+    },
+    BuildPlatform: {
+      value: 'any cpu',
+      allowOverride: true
+    },
+    'system.debug': {
+      value: 'false',
+      allowOverride: true
+    }
+  },
+  retentionRules: [{
+    branches: [Array],
+    artifacts: [],
+    artifactTypesToDelete: [Array],
+    daysToKeep: 10,
+    minimumToKeep: 1,
+    deleteBuildRecord: true,
+    deleteTestResults: true
+  }],
+  _links: {
+    self: {
+      href: 'https://helaili.visualstudio.com/DefaultCollection/d9cf02d4-6723-4346-a726-477315b23501/_apis/build/Definitions/5'
+    },
+    web: {
+      href: 'https://helaili.visualstudio.com/DefaultCollection/_permalink/_build/index?collectionId=39f0b7ad-371d-4c8b-af7d-a1f4ee1e4d1f&projectId=d9cf02d4-6723-4346-a726-477315b23501&definitionId=5'
+    },
+    editor: {
+      href: 'https://helaili.visualstudio.com/DefaultCollection/_permalink/_build/definitionEditor?collectionId=39f0b7ad-371d-4c8b-af7d-a1f4ee1e4d1f&projectId=d9cf02d4-6723-4346-a726-477315b23501&definitionId=5'
+    }
+  },
+  buildNumberFormat: '$(date:yyyyMMdd)$(rev:.r)',
+  jobAuthorizationScope: 1,
+  jobTimeoutInMinutes: 60,
+  jobCancelTimeoutInMinutes: 5,
+  repository: {
+    properties: {
+      cleanOptions: '0',
+      gitLfsSupport: 'false',
+      skipSyncSource: 'false',
+      checkoutNestedSubmodules: 'false',
+      fetchDepth: '0',
+      connectedServiceId: 'd6545836-9e55-49a4-915e-b45879238101'
+    },
+    id: 'https://github.com/helaili/SpidersFromMars',
+    type: 'Git',
+    name: 'SpidersFromMars',
+    url: 'https://github.com/helaili/SpidersFromMars',
+    defaultBranch: 'master',
+    clean: 'false',
+    checkoutSubmodules: false
+  },
+  processParameters: {
+    inputs: [
+      [Object],
+      [Object]
+    ]
+  },
+  quality: 1,
+  authoredBy: {
+    id: '24660040-4532-477b-b198-c9bfc941e073',
+    displayName: 'helaili',
+    uniqueName: 'helaili@github.com',
+    url: 'https://app.vssps.visualstudio.com/A7b207f0c-939e-4cf4-97d1-3423ced2c63c/_apis/Identities/24660040-4532-477b-b198-c9bfc941e073',
+    imageUrl: 'https://helaili.visualstudio.com/_api/_common/identityImage?id=24660040-4532-477b-b198-c9bfc941e073'
+  },
+  drafts: [],
+  queue: {
+    id: 22,
+    name: 'Hosted',
+    pool: {
+      id: 2,
+      name: 'Hosted',
+      isHosted: true
+    }
+  },
+  id: 5,
+  name: 'SpidersFromMars-ASP.NET Core (.NET Framework)-CI',
+  url: 'https://helaili.visualstudio.com/DefaultCollection/d9cf02d4-6723-4346-a726-477315b23501/_apis/build/Definitions/5',
+  uri: 'vstfs:///Build/Definition/5',
+  path: '\\',
+  type: 2,
+  queueStatus: 0,
+  revision: 1,
+  createdDate: 2017 - 10 - 27 T20: 14: 35.780 Z,
+  project: {
+    id: 'd9cf02d4-6723-4346-a726-477315b23501',
+    name: 'SpidersFromMars',
+    url: 'https://helaili.visualstudio.com/DefaultCollection/_apis/projects/d9cf02d4-6723-4346-a726-477315b23501',
+    state: 'wellFormed',
+    revision: 45,
+    visibility: 'private'
+  }
+}

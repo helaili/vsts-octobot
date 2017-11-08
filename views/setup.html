@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>VSTS Octobot - Setup</title>
+  <meta name="description" content="Setup page for VSTS Octobot">
+  <meta name="author" content="helaili">
+  <link rel="stylesheet" href="css/primer.css">
+</head>
+<body>
+  <div class="container">
+    <form action="/vsts-octobot/setup" method="post">
+      <input type="hidden" name="installation_id" value='{{installation_id}}'>
+      <dl class="form-group">
+        <dt><label>VSTS Token</label></dt>
+        <dd><input class="form-control" type="text" name="token"></dd>
+      </dl>
+      <button class="btn" type="submit">Submit</button>
+    </form>
+  </div>
+</body>
+</html>
