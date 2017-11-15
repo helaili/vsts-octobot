@@ -39,11 +39,11 @@ describe('GitHub Status', () => {
 
   describe('When calling send,', () => {
     it('A commit status is created', async () => {
-      let ghStatus = new GitHubStatus('39467a0d884b826db3bbfc1889de02c5c37b4170', 'pending', 'https://github.com', 'Building...', 'continuous-integration/vsts')
+      let ghStatus = new GitHubStatus('39467a0d884b826db3bbfc1889de02c5c37b4170')
       let spy = expect.createSpy((status) => {
         return status
       })
-      await ghStatus.send(githubContext, spy)
+      await ghStatus.send(githubContext, 'pending', 'https://github.com', 'Building...', 'continuous-integration/vsts', spy)
 
       expect(githubContext.github.repos.createStatus).toHaveBeenCalled()
       expect(spy).toHaveBeenCalled()

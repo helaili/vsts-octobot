@@ -10,18 +10,19 @@ describe('Persistence Layer', () => {
 
   it('Encodes a string', () => {
     let persistence = new PersistenceLayer(fernetSecret)
-    let encodedToken = persistence.set(key, sensitiveString)
-    expect(encodedToken).toExist()
-    expect(encodedToken).toBeA('string')
-    expect(encodedToken).toNotEqual(sensitiveString)
+    persistence.setToken(key, sensitiveString).then((encodedToken) => {
+      expect(encodedToken).toExist()
+      expect(encodedToken).toBeA('string')
+      expect(encodedToken).toNotEqual(sensitiveString)
+    })
   })
 
-  it('Retrieves a decoded string', () => {
+  it('Retrieves a decoded string', async () => {
     let persistence = new PersistenceLayer(fernetSecret)
-    persistence.set(key, sensitiveString)
-    let decodedSensitiveString = persistence.get(key)
-
-    expect(decodedSensitiveString).toExist()
-    expect(decodedSensitiveString).toEqual(sensitiveString)
+    await persistence.setToken(key, sensitiveString)
+    persistence.getInstallation(key).then((decodedSensitiveString) => {
+      expect(decodedSensitiveString).toExist()
+      expect(decodedSensitiveString).toEqual(sensitiveString)
+    })
   })
 })
