@@ -4,7 +4,7 @@ const viewTemplate = require('./lib/view-template')
 const PersistenceLayer = require('./lib/persistence-layer')
 const BuildManager = require('./lib/build-manager')
 const GitHubStatus = require('./lib/github-status')
-const Context = require('probot/lib/Context')
+const Context = require('probot/lib/context')
 
 module.exports = (robot) => {
   if (!process.env.FERNET_SECRET) {
@@ -22,6 +22,12 @@ module.exports = (robot) => {
   // Receiving a push event on github
   robot.on('push', async context => {
     robot.log.trace('Received push event')
+
+    robot.auth(context.payload.installation.id).then((github) => {
+      // Create a fresh probot context object
+      let probotContext = new Context({payload: context.payload}, github)
+    })
+
     buildMngr.build(context)
   })
 
