@@ -7,7 +7,7 @@ const GitHubStatus = require('./lib/github-status')
 const Context = require('probot/lib/context')
 
 module.exports = (robot) => {
-  if (!process.env.FERNET_SECRET) {
+  if (!process.env.FERNET_SECRET && process.env.NODE_ENV === 'production') {
     console.error('Missing Fernet secret. Set FERNET_SECRET in your .env file or as an environment variable.')
     process.exit()
   }
