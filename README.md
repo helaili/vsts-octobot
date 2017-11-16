@@ -1,7 +1,9 @@
 # vsts-octobot
+[![Build Status](https://travis-ci.org/helaili/vsts-octobot.svg?branch=master)](https://travis-ci.org/helaili/vsts-octobot)
+
 
 A GitHub App built with [probot](https://github.com/probot/probot) that links GitHub Enterprise and VSTS.
-It triggers a VSTS build when a commit is pushed to a pull request and updates its status. 
+It triggers a VSTS build when a commit is pushed to a pull request and updates its status.
 
 ## Usage
 
