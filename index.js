@@ -22,12 +22,6 @@ module.exports = (robot) => {
   // Receiving a push event on github
   robot.on('push', async context => {
     robot.log.trace('Received push event')
-
-    robot.auth(context.payload.installation.id).then((github) => {
-      // Create a fresh probot context object
-      let probotContext = new Context({payload: context.payload}, github)
-    })
-
     buildMngr.build(context)
   })
 
