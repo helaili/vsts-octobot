@@ -23,6 +23,8 @@ The content of this file can be easily populated by looking at the URL of your b
 
 ## Deploy your own
 
+:wip: Note that there is a bug in a dependency which needs to be fixed before you can run your own instance. See Microsoft/vsts-node-api#125 :wip:
+
 1. Create [a new GitHub app](https://github.com/settings/apps/new).
 1. Clone the repository.
 1. Create and configure a `.env` file in the root directory as explained below.
