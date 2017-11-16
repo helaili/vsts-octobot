@@ -4,6 +4,7 @@ const viewTemplate = require('./lib/view-template')
 const PersistenceLayer = require('./lib/persistence-layer')
 const BuildManager = require('./lib/build-manager')
 const GitHubStatus = require('./lib/github-status')
+const Context = require('probot/lib/Context')
 
 module.exports = (robot) => {
   if (!process.env.FERNET_SECRET) {
@@ -24,7 +25,6 @@ module.exports = (robot) => {
     buildMngr.build(context)
   })
 
-
   robot.on('installation', async context => {
     // TODO: manage removal of the application
     robot.log.trace('Received installation event')
@@ -40,32 +40,39 @@ module.exports = (robot) => {
   app.use(bodyParser.json())
 
   app.post('/buildResult', (req, res) => {
-    persistence.getContext(req.body.resource.project.id, req.body.resource.definition.id, req.body.resource.buildNumber).then((context) => {
+    persistence.getPayload(req.body.resource.project.id, req.body.resource.definition.id, req.body.resource.buildNumber).then((context) => {
       if (context) {
         robot.log.info('Received a callback for build:', req.body.resource.project.id, req.body.resource.definition.id, req.body.resource.buildNumber)
         let result = req.body.resource.result
-        let buildStatus = new GitHubStatus(context.probotContextpayload.head_commit.id)
-        let status
 
-        if (result === 'succeeded') {
-          status = 'success'
-        } else if (result === 'failed' || result === 'canceled' || result === 'partiallySucceeded') {
-          status = 'failure'
-        } else { // buildStatus=none
-          status = 'error'
-        }
+        // Retrive an authenticated GitHub client
+        robot.auth(context.payload.installation.id).then((github) => {
+          // Create a fresh probot context object
+          let probotContext = new Context({payload: context.payload}, github)
+          let buildStatus = new GitHubStatus(context.payload.head_commit.id)
+          let status
 
-        buildStatus.send(context.probotContext, status, context.link, result, 'continuous-integration/vsts', (buildStatusResult) => {
-          if (!buildStatusResult.data.id) {
-            // Something terribly wrong happened
-            this.robot.log.error('Failing to send GitHub commit status', buildStatusResult)
-            res.sendStatus(401).send(buildStatusResult)
-          } else {
-            res.end(buildStatusResult)
+          if (result === 'succeeded') {
+            status = 'success'
+          } else if (result === 'failed' || result === 'canceled' || result === 'partiallySucceeded') {
+            status = 'failure'
+          } else { // buildStatus=none
+            status = 'error'
           }
+
+          buildStatus.send(probotContext, status, context.link, result, 'continuous-integration/vsts', (buildStatusResult) => {
+            robot.log.trace(buildStatusResult)
+            if (!buildStatusResult.data.id) {
+              // Something terribly wrong happened
+              this.robot.log.error('Failing to send GitHub commit status', buildStatusResult)
+              return res.sendStatus(401).json(buildStatusResult)
+            } else {
+              return res.json(buildStatusResult)
+            }
+          })
         })
       } else {
-        robot.log.info('Received a callback for an unknown build:', req.body.resource.project.id, req.body.resource.definition.id, req.body.resource.buildNumber)
+        robot.log.warn('Received a callback for an unknown build:', req.body.resource.project.id, req.body.resource.definition.id, req.body.resource.buildNumber)
       }
     }, (error) => {
       robot.log.error(error)
