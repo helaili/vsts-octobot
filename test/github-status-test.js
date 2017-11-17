@@ -33,7 +33,7 @@ describe('GitHub Status', () => {
 
     // Passes the mocked out GitHub API into out robot instance
     robot.auth = () => {
-      Promise.resolve(githubContext.github)
+      return Promise.resolve(githubContext.github)
     }
   })
 

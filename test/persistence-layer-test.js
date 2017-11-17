@@ -4,25 +4,24 @@ const expect = require('expect')
 const PersistenceLayer = require('../lib/persistence-layer')
 
 describe('Persistence Layer', () => {
+  const fernetSecret = 'cw_0x689RpI-jtRR7oE8h_eQsKImvJapLeSbXpwF4e4='
   let sensitiveString = 'xxxxxxx'
   let key = 42
-  let fernetSecret = 'cw_0x689RpI-jtRR7oE8h_eQsKImvJapLeSbXpwF4e4='
+  let persistence
 
   beforeEach(() => {
-    let persistence = new PersistenceLayer(fernetSecret)
+    persistence = new PersistenceLayer(fernetSecret)
     persistence.deleteInstallation(key)
     persistence.deleteContext('42', '42', '42')
   })
 
   it('Encodes a string', async () => {
-    let persistence = new PersistenceLayer(fernetSecret)
     await persistence.setToken(key, sensitiveString).then((retCode) => {
       expect(retCode).toEqual(1)
     })
   })
 
   it('Retrieves a decoded string', async () => {
-    let persistence = new PersistenceLayer(fernetSecret)
     await persistence.setToken(key, sensitiveString)
     await persistence.getInstallation(key).then((installation) => {
       expect(installation).toExist()
@@ -54,7 +53,6 @@ describe('Persistence Layer', () => {
         spots: 'white'
       }
     }
-    let persistence = new PersistenceLayer(fernetSecret)
     await persistence.savePayload(build, dog)
     await persistence.getPayload('42', '42', '42').then((context) => {
       expect(context).toExist()
