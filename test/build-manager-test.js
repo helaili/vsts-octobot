@@ -8,7 +8,6 @@ const PersistenceLayer = require('../lib/persistence-layer')
 const buildSucceedMessage = require('./fixtures/buildSucceed.json')
 const queuedBuildMessage = require('./fixtures/queuedBuild.json')
 const pushMessage = require('./fixtures/push.json')
-const createCommitStatus = require('./fixtures/createCommitStatus.json')
 
 describe('Build Manager', () => {
   const fernetSecret = 'cw_0x689RpI-jtRR7oE8h_eQsKImvJapLeSbXpwF4e4='
@@ -22,9 +21,6 @@ describe('Build Manager', () => {
     persistence = new PersistenceLayer(fernetSecret)
 
     githubContext = {
-      issue: expect.createSpy().andReturn(Promise.resolve({
-        data: createCommitStatus
-      })),
       github: {
         repos: {
           createStatus: expect.createSpy().andReturn(Promise.resolve({
@@ -44,7 +40,7 @@ describe('Build Manager', () => {
   })
 
   it('Updates the commit status when the build is successful', async () => {
-    persistence.savePayload(queuedBuildMessage, githubContext)
+    persistence.savePayload(queuedBuildMessage, githubContext.payload)
     let buildMngr = new BuildManager(robot)
     const response = await buildMngr.buildCompleted(buildSucceedMessage)
     expect(response).toExist()
