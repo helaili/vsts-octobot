@@ -8,7 +8,8 @@
   "scripts": {
     "start": "probot run ./index.js",
     "test": "mocha && standard",
-    "push": "node_modules/.bin/probot simulate push test/fixtures/push.json ./index.js"
+    "push": "node_modules/.bin/probot simulate push test/fixtures/push.json ./index.js",
+    "redis": "redis-server etc/redis.conf &"
   },
   "dependencies": {
     "body-parser": "^1.18.2",
