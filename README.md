@@ -23,8 +23,6 @@ The content of this file can be easily populated by looking at the URL of your b
 
 ## Deploy your own
 
-:construction: Note that there is [a bug](https://github.com/Microsoft/vsts-node-api/pull/125) in a dependency which needs to be fixed before you can run your own instance. :construction: 
-
 1. Create [a new GitHub app](https://github.com/settings/apps/new).
 1. Clone the repository.
 1. Create and configure a `.env` file in the root directory as explained below.

@@ -61,9 +61,11 @@ module.exports = (robot) => {
 
   // Receive the VSTS token within the posted form
   app.post('/setup', (req, res) => {
-    if (req.body.installation_id && req.body.token) {
-      persistence.setToken(req.body.installation_id, req.body.token)
-    } else if (!req.body.token) {
+    if (req.body.installation_id && req.body.token && req.body.username) {
+      let encodedCredentials = Buffer.from(`${req.body.username}:${req.body.token}`).toString('base64')
+
+      persistence.setCredentials(req.body.installation_id, encodedCredentials)
+    } else if (!req.body.token || !req.body.username) {
       // Missing token, go back to the setup page
       return showSetupPage(res, req.body.installation_id)
     } else {

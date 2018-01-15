@@ -10,10 +10,15 @@
 </head>
 <body>
   <div class="container">
-    <form action="/vsts-octobot/setup" method="post">
+    <h2 class="Subhead-heading f3">Please provide VSTS credentials</h2>
+    <form action="/vsts-octobot/setup" method="post" autocomplete="off">
       <input type="hidden" name="installation_id" value='{{installation_id}}'>
       <dl class="form-group">
-        <dt><label>VSTS Token</label></dt>
+        <dt><label>Username</label></dt>
+        <dd><input class="form-control" type="text" name="username"></dd>
+      </dl>
+      <dl class="form-group">
+        <dt><label>Personal access token</label></dt>
         <dd><input class="form-control" type="text" name="token"></dd>
       </dl>
       <button class="btn" type="submit">Submit</button>

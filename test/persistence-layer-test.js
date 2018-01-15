@@ -16,13 +16,13 @@ describe('Persistence Layer', () => {
   })
 
   it('Encodes a string', async () => {
-    await persistence.setToken(key, sensitiveString).then((retCode) => {
+    await persistence.setCredentials(key, sensitiveString).then((retCode) => {
       expect(retCode).toEqual(1)
     })
   })
 
   it('Retrieves a decoded string', async () => {
-    await persistence.setToken(key, sensitiveString)
+    await persistence.setCredentials(key, sensitiveString)
     await persistence.getInstallation(key).then((installation) => {
       expect(installation).toExist()
       expect(installation.vstsToken).toEqual(sensitiveString)
