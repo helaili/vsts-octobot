@@ -1,5 +1,8 @@
+## Install homebrew
+
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"
+
 ## Installing Redis
-sudo yum install gcc
 wget http://download.redis.io/redis-stable.tar.gz
 tar xvzf redis-stable.tar.gz
 cd redis-stable
@@ -50,11 +53,13 @@ sudo chkconfig --add redis_6379
 
 Reboot
 
+
 ## Install node
-https://nodejs.org/en/download/current/
+brew install node
 
 ## Deploy PM2
 npm install pm2@latest -g
-pm2 startup
-pm2 ecosystem
-vi /home/ec2-user/ecosystem.config.js
+
+## Deploy
+Back to your machine
+pm2 deploy ecosystem.config.js production setup
