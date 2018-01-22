@@ -77,6 +77,5 @@ module.exports = (robot) => {
     res.end(successView)
   })
 
-  console.log(`I am soooo ready to serve on port ${process.env.NODE_PORT}!!!`)
   return app
 }

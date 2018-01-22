@@ -57,7 +57,7 @@ Reboot
 ## Install node
 brew install node
 
-## Deploy PM2
+## Install PM2
 npm install pm2@latest -g
 
 ## Deploy
@@ -66,8 +66,37 @@ Edit `ecosystem.config.js` accordingly. This file isn't committed to git so you 
 pm2 deploy production setup
 pm2 deploy production
 pm2 deploy production exec "pm2 show vsts-octobot"
-
+pm2 deploy production exec "pm2 logs vsts-octobot"
 
 ## Install nginx
 sudo yum install nginx
-sudo chkconfig --add nginx
+sudo chkconfig nginx on
+
+sudo vi /etc/nginx/conf.d/virtual.conf
+
+```
+server {
+    listen 443;
+    listen [::]:443;
+    server_name vsts-octobot.octodemoapps.com;
+    location / {
+        proxy_pass http://172.31.21.212:4000;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection 'upgrade';
+        proxy_set_header Host $host;
+        proxy_cache_bypass $http_upgrade;
+     }
+     ssl_certificate /etc/ssl/vsts-octobot.octodemoapps.com/fullchain.pem;
+     ssl_certificate_key /etc/ssl/vsts-octobot.octodemoapps.com/privkey.pem;
+     ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
+     ssl_prefer_server_ciphers on;
+     ssl_ciphers EECDH+CHACHA20:EECDH+AES128:RSA+AES128:EECDH+AES256:RSA+AES256:EECDH+3DES:RSA+3DES:!MD5;
+
+     ssl_session_cache shared:SSL:5m;
+     ssl_session_timeout 1h;
+     add_header Strict-Transport-Security “max-age=15768000” always;
+}
+```
+
+sudo service nginx start
