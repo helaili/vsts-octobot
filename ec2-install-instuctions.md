@@ -62,4 +62,6 @@ npm install pm2@latest -g
 
 ## Deploy
 Back to your machine
-pm2 deploy ecosystem.config.js production setup
+Edit `ecosystem.config.js` accordingly. This file isn't committed to git so you can put secrets in. 
+pm2 deploy production setup
+pm2 deploy production
