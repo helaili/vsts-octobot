@@ -14,7 +14,8 @@ module.exports = {
         APP_ID: 1,
         WEBHOOK_SECRET: 'development',
         BASE_URL: 'https://myserver.com/',
-        FERNET_SECRET: 'cw_0x689RpI-jtRR7oE8h_eQsKImvJapLeSbXpwF4e4='
+        FERNET_SECRET: 'cw_0x689RpI-jtRR7oE8h_eQsKImvJapLeSbXpwF4e4=',
+        DISABLE_TUNNEL: true
       },
       env_production : {
         NODE_ENV: 'production'
