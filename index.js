@@ -6,7 +6,7 @@ const BuildManager = require('./lib/build-manager')
 
 module.exports = (robot) => {
   if (!process.env.FERNET_SECRET && process.env.NODE_ENV === 'production') {
-    console.error('Missing Fernet secret. Set FERNET_SECRET in your .env file or as an environment variable.')
+    robot.log.error('Missing Fernet secret. Set FERNET_SECRET in your .env file or as an environment variable.')
     process.exit()
   }
 
@@ -77,6 +77,6 @@ module.exports = (robot) => {
     res.end(successView)
   })
 
-  robot.log.error("I am soooo ready to serve!!!")
+  console.log(`I am soooo ready to serve on port ${process.env.NODE_PORT}!!!`)
   return app
 }

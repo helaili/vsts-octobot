@@ -66,3 +66,8 @@ Edit `ecosystem.config.js` accordingly. This file isn't committed to git so you 
 pm2 deploy production setup
 pm2 deploy production
 pm2 deploy production exec "pm2 show vsts-octobot"
+
+
+## Install nginx
+sudo yum install nginx
+sudo chkconfig --add nginx
