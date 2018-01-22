@@ -34,6 +34,7 @@ module.exports = {
       ref  : 'origin/master',
       repo : 'https://github.com/helaili/vsts-octobot.git',
       path : '/home/ec2-user',
+      'pre-deploy-local' : 'scp ecosystem.config.js ec2-user@vsts-octobot.yourdomain.com:/home/ec2-user',
       'post-deploy' : 'npm install && pm2 reload ecosystem.config.js --env production'
     }
   }
