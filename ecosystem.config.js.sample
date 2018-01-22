@@ -8,7 +8,7 @@ module.exports = {
       name      : 'vsts-octobot',
       cwd       : '/home/ec2-user/vsts-octobot',
       script    : 'node_modules/probot/bin/probot-run.js',
-      node_args : './index.js',
+      node_args : '/home/ec2-user/vsts-octobot/current/index.js',
       env: {
         GHE_HOST: 'ghe.example.com',
         APP_ID: 1,
@@ -34,7 +34,7 @@ module.exports = {
       ref  : 'origin/master',
       repo : 'https://github.com/helaili/vsts-octobot.git',
       path : '/home/ec2-user',
-      'pre-deploy-local' : 'scp ecosystem.config.js ec2-user@vsts-octobot.yourdomain.com:/home/ec2-user',
+      'pre-deploy-local' : 'scp ecosystem.config.js vsts-octobot.2018-01-15.private-key.pem ec2-user@vsts-octobot.yourdomain.com:/home/ec2-user',
       'post-deploy' : 'npm install && pm2 reload ecosystem.config.js --env production'
     }
   }

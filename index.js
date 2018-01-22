@@ -74,8 +74,9 @@ module.exports = (robot) => {
       return res.end(errorView)
     }
 
-    // TODO: Register a webhook in VSTS so we're notified of the build result
     res.end(successView)
   })
+
+  robot.log.error("I am soooo ready to serve!!!")
   return app
 }

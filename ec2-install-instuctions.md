@@ -62,6 +62,7 @@ npm install pm2@latest -g
 
 ## Deploy
 Back to your machine
-Edit `ecosystem.config.js` accordingly. This file isn't committed to git so you can put secrets in. 
+Edit `ecosystem.config.js` accordingly. This file isn't committed to git so you can put secrets in.
 pm2 deploy production setup
 pm2 deploy production
+pm2 deploy production exec "pm2 show vsts-octobot"
