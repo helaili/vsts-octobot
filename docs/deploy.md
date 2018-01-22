@@ -1,6 +1,6 @@
 # Deploying
 
-If you would like to run your own instance of this app, see the [docs for deployment](https://probot.github.io/docs/deployment/).
+## Create the app on your GHE instance
 
 This app requires these **Permissions & events** for the GitHub App:
 

@@ -25,12 +25,12 @@ The content of this file can be easily populated by looking at the URL of your b
 
 1. Create [a new GitHub app](https://github.com/settings/apps/new).
 1. Clone the repository.
-1. Create and configure a `.env` file in the root directory as explained below.
+1. Create and configure a `.env` file in the root directory as explained below or use PM2 and configure the `ecosystem.config.js` file.
 1. Install and run Redis using a persistent configuration.
 1. Update the dependencies with `npm install`.
 1. Run with `npm start`.
 
-#### Content of the `.env` file
+#### Environment variables
 - `APP_ID`: the id of the GitHub app generated when registering the new GitHub App
 - `WEBHOOK_SECRET`: the optional Webhook secret set during the registration of the new GitHub App
 - `BASE_URL`: The URL at which VSTS will post back events. Exemple: `http://yourserver:3000/` or `https://yourname.localtunnel.me`

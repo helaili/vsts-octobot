@@ -1,0 +1,40 @@
+module.exports = {
+  /**
+   * Application configuration section
+   * http://pm2.keymetrics.io/docs/usage/application-declaration/
+   */
+  apps : [
+    {
+      name      : 'vsts-octobot',
+      cwd       : '/home/ec2-user/vsts-octobot',
+      script    : 'node_modules/probot/bin/probot-run.js',
+      node_args : './index.js',
+      env: {
+        GHE_HOST: 'ghe.example.com',
+        APP_ID: 1,
+        WEBHOOK_SECRET: 'development',
+        BASE_URL: 'https://myserver.com/',
+        FERNET_SECRET: 'cw_0x689RpI-jtRR7oE8h_eQsKImvJapLeSbXpwF4e4='
+      },
+      env_production : {
+        NODE_ENV: 'production'
+      }
+    }
+  ],
+
+  /**
+   * Deployment section
+   * http://pm2.keymetrics.io/docs/usage/deployment/
+   */
+  deploy : {
+    production : {
+      user : 'ec2-user',
+      host : 'vsts-octobot.yourdomain.com',
+      key  : 'mykey.pem',
+      ref  : 'origin/master',
+      repo : 'https://github.com/helaili/vsts-octobot.git',
+      path : '/home/ec2-user',
+      'post-deploy' : 'npm install && pm2 reload ecosystem.config.js --env production'
+    }
+  }
+};

@@ -6,3 +6,4 @@ package-lock.json
 .DS_Store
 appendonly.aof
 dump.rdb
+ecosystem.config.js
